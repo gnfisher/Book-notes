@@ -20,3 +20,17 @@ muddy code with type checks (including nil checks).
 - Trust your ducks; type checking muddies up the method code and makes it harder
   to understand and harder to test.
 
+
+## Collecting Input
+
+- Take time to consider direct and indirect inputs your method will rely on.
+  This will effect clarity and also the surface area for future bugs - indirect
+  inputs combined with other inputs to fetch a _required_ value being one of the
+  most common sources for bugs in software.
+
+- Keep defensive programming tactics (coercing input, checking input for
+  correctness, etc) to the _boundaries, not the hinterlands_ of the program.
+  Trust input once it passes those boundary checks. Improves readability,
+  clarity, etc on the internals of your application code.
+
+
