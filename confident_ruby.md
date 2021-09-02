@@ -23,14 +23,41 @@ muddy code with type checks (including nil checks).
 
 ## Collecting Input
 
+### Introduction to collecting input
+
 - Take time to consider direct and indirect inputs your method will rely on.
   This will effect clarity and also the surface area for future bugs - indirect
   inputs combined with other inputs to fetch a _required_ value being one of the
-  most common sources for bugs in software.
+  most common sources for bugs in software. ENV variables, class names, too.
 
 - Keep defensive programming tactics (coercing input, checking input for
   correctness, etc) to the _boundaries, not the hinterlands_ of the program.
   Trust input once it passes those boundary checks. Improves readability,
   clarity, etc on the internals of your application code.
 
+### Use built-in conversion protocols
 
+- Useful when you want to ensure the inputs are of a specific _core type_, such
+  as `Integer`.
+
+- Ruby has a number of defined converstion protocols: `#to_str, #to_i, #to_path`
+
+- Ruby's core libraries often do implicit conversion using methods like
+  `#to_str`, `#to_int`, and `#to_path`. e.g., `File#open` will call `#to_path`
+  on the `filename` argument. If an object defines it and returns the expected
+  `String`, it will work. No need to manually convert the object to `String` and
+  pass that in.
+
+- Implicit conversion methods are for converting classes that are mostly like
+  the target class; explicit conversion methods are for things that are mostly
+  unlike. Example, there are many ways to convert a `Time` object to a string,
+  so you'd use explicit `#to_s`. But the `Path` class defines a `#to_path`
+  implicit conversion method.
+
+- String interpolation uses `#to_s`. Concatenating two strings with `+` will
+  implicitly call `#to_str`.
+
+- Takeaway: if you know what you want, ask for it! If you expect an integer,
+  consider coercing the input to an int. Calling `1.to_int` returns `1` still.
+  If the object passed in doesn't respond to `#to_int` an error is thrown at the
+  boundary where bad data was introduced.
