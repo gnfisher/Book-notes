@@ -77,8 +77,15 @@ You can be less strict by using explicit conversion methods (like `#to_s`).
 
 - You aren't asking "Are you this type of object?" you are asking "Can you
   _give_ me this type of object?" Using `#respond_to?` for the former is frowned
-  upon (can lead to clunky code quickly, probably leading to Open/Closed
-  violations as we would need to modify every time we add a different possible
-  object to handle). The latter is focused on the
+  upon (can lead to clunky code quickly). The latter is focused on the
   _messages_ and doesn't care what you give so long as it can give the method
   what it needs.
+
+### Define your own conversion protocols
+
+- You can define your own conversion protocols. This allows you to take in plain
+  old data and convert it when you need it. _Allows for easy extension later._
+
+- The example given is the idea of `coordinates` that is an array of X,Y values.
+  A `Point` class defines its `#to_coords` which converts the object into a two
+  element array.
