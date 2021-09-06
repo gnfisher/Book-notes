@@ -37,6 +37,14 @@ muddy code with type checks (including nil checks).
 
 ### Use built-in conversion protocols
 
+Summary: There are implicit conversion methods (the given type is expected to be
+very similar to the converted type, i.e. `#to_str` for something very similar to
+a String. There are explicit converstion methods (the given type is expected to
+be representable and not necessarily similar to the converted type, i.e.
+`#to_s`. If you want strictness, you can use the implicit conversion methods to
+convert inputs to the expected type (as `String#to_str` retuns a String, too).
+You can be less strict by using explicit conversion methods (like `#to_s`).
+
 - Useful when you want to ensure the inputs are of a specific _core type_, such
   as `Integer`.
 
@@ -61,3 +69,16 @@ muddy code with type checks (including nil checks).
   consider coercing the input to an int. Calling `1.to_int` returns `1` still.
   If the object passed in doesn't respond to `#to_int` an error is thrown at the
   boundary where bad data was introduced.
+
+### Conditionally call conversion methods
+
+- Use `#respond_to?` to make sure the object you're given can give you the kind
+  of object you need.
+
+- You aren't asking "Are you this type of object?" you are asking "Can you
+  _give_ me this type of object?" Using `#respond_to?` for the former is frowned
+  upon (can lead to clunky code quickly, probably leading to Open/Closed
+  violations as we would need to modify every time we add a different possible
+  object to handle). The latter is focused on the
+  _messages_ and doesn't care what you give so long as it can give the method
+  what it needs.
