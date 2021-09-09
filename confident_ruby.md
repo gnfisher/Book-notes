@@ -89,3 +89,12 @@ You can be less strict by using explicit conversion methods (like `#to_s`).
 - The example given is the idea of `coordinates` that is an array of X,Y values.
   A `Point` class defines its `#to_coords` which converts the object into a two
   element array.
+
+### Define conversions to user-defined types
+
+- You can define your own conversion protocols on your user-defined types to
+  ensure your working with something expected. For example, your `Meters` class
+  can implemented a `#to_meters` method that returns self, and internally call
+  `to_meters` on the passed in object used for calculations. If the passed in
+  object doesn't implement a `#to_meters` conversion method, you'll get an
+  error, which is what you want.
