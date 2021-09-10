@@ -49,3 +49,10 @@ Example questions:
 - Fact gathering questions are a good place to start and get bearings, but the
   open ended questions should point towards feeling questions eventually. e.g.
   "What is your gut telling you?" "What's feeling stuck?"
+
+## Sponsoring
+- Not giving advice, suggesting someone for a role, responsibility
+- Highlighting their wins and accomplishments
+- Recommending them for a position or new responsibility, where they can stretch
+  and grow with support
+
