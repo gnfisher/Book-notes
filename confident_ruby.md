@@ -98,3 +98,16 @@ You can be less strict by using explicit conversion methods (like `#to_s`).
   `to_meters` on the passed in object used for calculations. If the passed in
   object doesn't implement a `#to_meters` conversion method, you'll get an
   error, which is what you want.
+  
+### Use built-in conversion functions
+
+- Methods like `Array()`, `Integer()`.
+- These are actually ordinary methods but break convention as they start with capital letters.
+- Useful if you want more forgiving API as they can convert a wider array of types than the equivalent `#to_*` methods.
+
+### Define conversion functions
+
+- Objects that make fewer demands are easier to use. If our object can accomodate many different objects as helpers, it's making less demands, and conversion functions help us do this.
+- Define your own indempotent conversion function that is applied to any incoming objects. The example used is defining a `Point()` method which yields a `Point` object when given two elemnt arrays, specially formatted strings, or `Point` objects.
+- You can make this more flexible by calling library defined conversions (like `#to_point`) on objects that respond to it, or converting the object to an array with `#to_ary` if it responds to it.
+- In short, make it easy to get along with!
