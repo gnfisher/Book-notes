@@ -107,7 +107,7 @@ You can be less strict by using explicit conversion methods (like `#to_s`).
 
 ### Define conversion functions
 
-- Objects that make fewer demands are easier to use. If our object can accomodate many different objects as helpers, it's making less demands, and conversion functions help us do this.
+- Objects that make fewer demands are easier to use. If our object can accomodate many different objects as helpers, it's making less demands, and conversion functions help us do this. *Me: I like the framing of "make fewer demands of collaborators"... does that fit for applying Open/Closed principle? You don't require new collaborators to reach into the guts of existing classes... maybe a reach?*
 - Define your own indempotent conversion function that is applied to any incoming objects. The example used is defining a `Point()` method which yields a `Point` object when given two elemnt arrays, specially formatted strings, or `Point` objects.
 - You can make this more flexible by calling library defined conversions (like `#to_point`) on objects that respond to it, or converting the object to an array with `#to_ary` if it responds to it.
 - In short, make it easy to get along with!
