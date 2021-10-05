@@ -56,3 +56,6 @@ Example questions:
 - Recommending them for a position or new responsibility, where they can stretch
   and grow with support
 
+## Holding balanced 1 on 1s
+- Four goals: share context, build trust, help someone grow, problem-solve together
+- 5-10% at beginning for context sharing, 5-10% at end to wrap up, the middle is a blend of trust/growth/problem solving
