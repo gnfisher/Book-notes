@@ -111,3 +111,9 @@ You can be less strict by using explicit conversion methods (like `#to_s`).
 - Define your own indempotent conversion function that is applied to any incoming objects. The example used is defining a `Point()` method which yields a `Point` object when given two elemnt arrays, specially formatted strings, or `Point` objects.
 - You can make this more flexible by calling library defined conversions (like `#to_point`) on objects that respond to it, or converting the object to an array with `#to_ary` if it responds to it.
 - In short, make it easy to get along with!
+
+### Replace "string typing" with classes
+
+- An example of string typing is casing on "magic strings".
+- Instead make the type system and polymorphic method dispatch do your work for you.
+They'll let you avoid constantly checking and rechecking inputs for correctness.
